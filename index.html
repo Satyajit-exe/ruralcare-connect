@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RuralCare Connect – Telemedicine for Every Indian</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Local Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- LOW BANDWIDTH WARNING BANNER -->
+  <div id="bandwidthBanner" class="bandwidth-banner" data-i18n="low_bandwidth_active">
+    Low-Bandwidth Mode Active: Compressing media and prioritizing audio/text consultations.
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav id="mainNav">
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+      <div class="logo-text">RuralCare<span>Connect</span></div>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#home" data-i18n="nav_services">Services</a></li>
+      <li><a href="#search" data-i18n="nav_doctors">Find Doctors</a></li>
+      <li><a href="#ai-chat" data-i18n="nav_ai">AI Health</a></li>
+      <li><a href="#dashboard" data-i18n="patient_records_title" style="white-space:nowrap;">Health Vault</a></li>
+      <li><a href="#emergency" data-i18n="emergency_btn_sos" style="color:var(--emergency); font-weight:700;">SOS Help</a></li>
+    </ul>
+    
+    <div class="nav-ctas">
+      <!-- Settings Controls -->
+      <div class="nav-controls">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="control-btn" title="Toggle Light/Dark Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Low-Bandwidth Toggle -->
+        <button id="bandwidthToggle" class="control-btn" title="Toggle Low-Bandwidth Mode">
+          <i class="fas fa-network-wired"></i>
+        </button>
+      </div>
+
+      <!-- Language Selector Dropdown -->
+      <select id="langSelect" class="lang-select">
+        <option value="en">EN</option>
+        <option value="hi">हिन्दी</option>
+        <option value="pb">ਪੰਜਾਬੀ</option>
+        <option value="or">ଓଡ଼ିଆ</option>
+      </select>
+      
+      <a href="portal.html" class="btn-outline" data-i18n="nav_login">Login</a>
+      <button onclick="openModal('modalRegister')" class="btn-primary" data-i18n="nav_register"><i class="fas fa-user-plus"></i> Register Free</button>
+    </div>
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 1. HOME VIEW CONTAINER -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-home" class="app-view active">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-bg-pattern"></div>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="sih-badge fade-up fade-up-1">
+            <i class="fas fa-award"></i>
+            <span data-i18n="hero_sih">Smart India Hackathon 2025 – SIH25018</span>
+          </div>
+          <div class="hero-badge fade-up fade-up-1">
+            <div class="dot"></div>
+            <span data-i18n="hero_badge">Telemedicine Platform for Nabha, Punjab</span>
+          </div>
+          <h1 class="fade-up fade-up-2">
+            <span data-i18n="hero_title">Quality Healthcare Reaches Every Village</span>
+          </h1>
+          <p class="hero-desc fade-up fade-up-3" data-i18n="hero_desc">
+            AI-powered telemedicine connecting rural communities in Nabha and beyond with qualified doctors — anytime, anywhere, in your language.
+          </p>
+          <div class="hero-actions fade-up fade-up-3">
+            <a href="#search" class="btn-hero btn-hero-primary" data-i18n="btn_consult">
+              <i class="fas fa-stethoscope"></i> Consult a Doctor
+            </a>
+            <a href="#ai-chat" class="btn-hero btn-hero-secondary" data-i18n="btn_ai">
+              <i class="fas fa-robot"></i> Try AI Checker
+            </a>
+          </div>
+          <div class="hero-trust fade-up fade-up-4">
+            <div class="hero-avatars">
+              <div class="avatar-placeholder" style="background:linear-gradient(135deg,#0A8A5F,#0FC47F)">RK</div>
+              <div class="avatar-placeholder" style="background:linear-gradient(135deg,#1E40AF,#3B82F6)">SP</div>
+              <div class="avatar-placeholder" style="background:linear-gradient(135deg,#F97316,#FCD34D)">AM</div>
+              <div class="avatar-placeholder" style="background:linear-gradient(135deg,#7C3AED,#A78BFA)">PK</div>
+            </div>
+            <div class="trust-text">
+              <strong>12,000+</strong> patients served in Nabha & Patiala rural regions.
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="float-card float-card-1">
+            <div class="float-icon" style="background:#E0F2FE">🩺</div>
+            <div class="float-card-text">
+              <strong>AI Diagnosis Ready</strong>
+              <span>Analyzing symptoms...</span>
+            </div>
+          </div>
+
+          <div class="hero-card-main">
+            <div class="card-doctor-row">
+              <div class="doctor-avatar">👨‍⚕️</div>
+              <div class="doctor-info">
+                <h4>Dr. Harpreet Singh</h4>
+                <p>Cardiologist · AIIMS Delhi</p>
+                <p style="font-size:12px;color:var(--muted)">⭐ 4.9 · 14 yrs exp</p>
+              </div>
+              <div class="online-badge">🟢 Online</div>
+            </div>
+            <div class="card-vitals">
+              <div class="vital-chip">
+                <div class="val">72</div>
+                <div class="lbl">Heart Rate</div>
+              </div>
+              <div class="vital-chip">
+                <div class="val">98%</div>
+                <div class="lbl">SpO₂</div>
+              </div>
+              <div class="vital-chip">
+                <div class="val">120/80</div>
+                <div class="lbl">BP</div>
+              </div>
+            </div>
+            <button onclick="navigateTo('search')" class="card-action-btn">
+              <i class="fas fa-video"></i> Start Consultation
+            </button>
+          </div>
+
+          <div class="float-card float-card-2">
+            <div class="float-icon" style="background:#FEF3C7">💊</div>
+            <div class="float-card-text">
+              <strong>Prescription Ready</strong>
+              <span>Sent to your phone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="num" data-target="500">500+</span>
+        <span class="lbl" data-i18n="stats_doctors">Verified Doctors</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">50K+</span>
+        <span class="lbl" data-i18n="stats_consultations">Consultations Done</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">11</span>
+        <span class="lbl" data-i18n="stats_specialties">Specializations</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">4</span>
+        <span class="lbl" data-i18n="stats_languages">Languages</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">24/7</span>
+        <span class="lbl" data-i18n="stats_emergency">Emergency Access</span>
+      </div>
+    </div>
+
+    <!-- SERVICES ECOSYSTEM -->
+    <section id="services" style="background:var(--bg)">
+      <div class="section-header">
+        <div class="section-label" data-i18n="services_subtitle">What We Offer</div>
+        <h2 class="section-title" data-i18n="services_title">Complete Rural Healthcare Ecosystem</h2>
+        <p class="section-desc" data-i18n="services_desc">From AI-powered diagnosis to video consultations — everything rural India needs, built for low-bandwidth environments.</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card" onclick="navigateTo('search')">
+          <div class="service-icon" style="background:#E0F2FE">📹</div>
+          <h3 data-i18n="nav_services">Video Consultations</h3>
+          <p>Real-time video calls with certified doctors. Works even on 2G networks with low-bandwidth compression mode.</p>
+          <span class="service-link">Consult Now <i class="fas fa-arrow-right"></i></span>
+        </div>
+        
+        <div class="service-card" onclick="navigateTo('ai-chat')">
+          <div class="service-icon" style="background:#DCFCE7">🤖</div>
+          <h3 data-i18n="btn_ai">AI Symptom Checker</h3>
+          <p>Describe your symptoms in Punjabi, Hindi or Odia. Our AI identifies possible conditions and recommends specialists.</p>
+          <span class="service-link">Try Free <i class="fas fa-arrow-right"></i></span>
+        </div>
+        
+        <div class="service-card" onclick="navigateTo('dashboard')">
+          <div class="service-icon" style="background:#FEF3C7">📋</div>
+          <h3 data-i18n="patient_records_title">Digital Health Records</h3>
+          <p>Store prescriptions, lab reports, and vitals history securely. Access anytime, download as PDF, share with doctors.</p>
+          <span class="service-link">View Vault <i class="fas fa-arrow-right"></i></span>
+        </div>
+        
+        <div class="service-card" onclick="navigateTo('emergency')">
+          <div class="service-icon" style="background:#FCE7F3">🆘</div>
+          <h3 data-i18n="emergency_btn_sos">Emergency Services</h3>
+          <p>One-tap SOS triggers alarms, logs Nabha geo-coordinates, tracks ambulances, and locates hospital beds.</p>
+          <span class="service-link">Get Urgent Care <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 STEPS PROCESS -->
+    <section style="background:var(--white)">
+      <div class="section-header center">
+        <div class="section-label" data-i18n="steps_subtitle">Simple Process</div>
+        <h2 class="section-title" data-i18n="steps_title">Get Doctor Consultation in 4 Steps</h2>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <span class="step-icon">📝</span>
+          <h3 data-i18n="step1_title">Register Free</h3>
+          <p data-i18n="step1_desc">Create your patient profile in English, Hindi, Punjabi or Odia. No tech expertise needed.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <span class="step-icon">🤖</span>
+          <h3 data-i18n="step2_title">AI Checks Symptoms</h3>
+          <p data-i18n="step2_desc">Enter symptoms by text or voice. AI recommends the right specialist and urgency level.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <span class="step-icon">📅</span>
+          <h3 data-i18n="step3_title">Book Appointment</h3>
+          <p data-i18n="step3_desc">Choose a verified doctor, pick a slot that suits you, and get instant confirmation.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <span class="step-icon">💻</span>
+          <h3 data-i18n="step4_title">Video Consult</h3>
+          <p data-i18n="step4_desc">Join the video call, get diagnosed, receive your digital prescription — all from home.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARENESS CAMPAIGNS -->
+    <section style="background:var(--bg)" id="campaigns">
+      <div class="section-header center">
+        <div class="section-label" data-i18n="nav_awareness">Awareness Campaigns</div>
+        <h2 class="section-title">Nabha Community Health Advice</h2>
+        <p class="section-desc">Seasonal updates and preventative care tips for rural communities in Patiala district.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" style="cursor:default;">
+          <span class="step-icon" style="font-size:36px; margin-bottom:12px; display:block;">🌾</span>
+          <h3 style="font-size:15px; font-weight:700;">Harvesting Health Precautions</h3>
+          <p style="font-size:13px; color:var(--muted);">Protect your lungs from crop dust and hay fever. Keep hydrated under peak Nabha summer heat waves.</p>
+        </div>
+        <div class="service-card" style="cursor:default;">
+          <span class="step-icon" style="font-size:36px; margin-bottom:12px; display:block;">🦟</span>
+          <h3 style="font-size:15px; font-weight:700;">Vector Disease Triage</h3>
+          <p style="font-size:13px; color:var(--muted);">Dengue and Malaria preventative sprays. Remove standing water around village wells and cattle sheds.</p>
+        </div>
+        <div class="service-card" style="cursor:default;">
+          <span class="step-icon" style="font-size:36px; margin-bottom:12px; display:block;">🍼</span>
+          <h3 style="font-size:15px; font-weight:700;">Maternal Nutrition Plans</h3>
+          <p style="font-size:13px; color:var(--muted);">Free folic acid distribution schedules at Nabha Civil Hospital. Healthy diets for expectant mothers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-section" id="contact">
+      <div class="section-header center">
+        <div class="section-label" data-i18n="nav_contact">Contact Us</div>
+        <h2 class="section-title">Support for Nabha Rural Blocks</h2>
+      </div>
+      
+      <div class="contact-grid">
+        <form class="contact-form" onsubmit="event.preventDefault(); showNotification('Message Sent', 'Our Nabha support team will call you back.');">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Mobile number" required>
+          </div>
+          <div class="form-group">
+            <label>Describe your query</label>
+            <textarea placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="justify-content:center; padding:12px;"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>RuralCare Hub Nabha</h4>
+              <p>Circular Road Sector 4, Nabha, Punjab - 147201</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h4>Toll-Free Helpline</h4>
+              <p>1800-345-6789 (Support in Punjabi & Hindi)</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Support Email</h4>
+              <p>sih-support@ruralcareconnect.gov.in</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo" style="margin-bottom:12px;">
+            <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+            <div style="color:white;" class="logo-text">RuralCare<span>Connect</span></div>
+          </a>
+          <p>Government telemedicine channel connecting Nabha district villages with verified health practitioners.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_services">Services</h4>
+          <ul>
+            <li><a href="#search">Doctor Directory</a></li>
+            <li><a href="#ai-chat">AI Symptom Assistant</a></li>
+            <li><a href="#dashboard">Digital Vitals Records</a></li>
+            <li><a href="#emergency">Ambulance Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_awareness">Awareness</h4>
+          <ul>
+            <li><a href="#campaigns">Seasonal Influenza</a></li>
+            <li><a href="#campaigns">Maternity Triage</a></li>
+            <li><a href="#campaigns">Punjab Health Schemes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>SIH25018 Platform</h4>
+          <ul>
+            <li><a href="#home">Smart India Hackathon 2025</a></li>
+            <li><a href="#home">Nabha Clinical Pilot</a></li>
+            <li><a href="#home">Privacy Policies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 RuralCare Connect. All clinical mock protocols reserved.</p>
+        <div class="footer-badges">
+          <div class="footer-badge"><i class="fas fa-shield-alt"></i> NDHM Compliant</div>
+          <div class="footer-badge"><i class="fas fa-heart"></i> Built for Nabha, Punjab</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 2. DOCTOR SEARCH / DIRECTORY VIEW -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-search" class="app-view">
+    <div class="search-section">
+      <div style="text-align:center; margin-bottom:28px;">
+        <div class="section-label" data-i18n="search_btn">Find Care Instantly</div>
+        <h2 class="section-title" data-i18n="search_title" style="margin-bottom:0;">Search Doctors, Symptoms or Diseases</h2>
+      </div>
+      
+      <div class="search-box">
+        <div class="search-input-group">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchDirectoryInput" data-i18n="search_placeholder" placeholder="Symptoms, doctor name, specialization...">
+        </div>
+        <div class="search-input-group" style="max-width:200px;">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" id="searchDirectoryLocation" data-i18n="search_location" placeholder="Location">
+        </div>
+        <div class="search-input-group" style="max-width:180px;">
+          <i class="fas fa-language"></i>
+          <select id="searchDirectoryLang">
+            <option>All Languages</option>
+            <option>English</option>
+            <option>Hindi</option>
+            <option>Punjabi</option>
+            <option>Odia</option>
+          </select>
+        </div>
+        <button id="searchDirectoryBtn" class="search-btn">
+          <i class="fas fa-search"></i> <span data-i18n="search_btn">Search Doctors</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="doctors-section">
+      <div class="spec-tabs" id="searchSpecTabs">
+        <button class="spec-tab active">All</button>
+        <button class="spec-tab">General Physician</button>
+        <button class="spec-tab">Cardiologist</button>
+        <button class="spec-tab">Pediatrician</button>
+        <button class="spec-tab">Dermatologist</button>
+        <button class="spec-tab">Gynecologist</button>
+        <button class="spec-tab">Orthopedic</button>
+        <button class="spec-tab">ENT Specialist</button>
+      </div>
+      
+      <!-- Doctors Cards Listing Grid -->
+      <div class="doctors-grid" id="doctorsDirectoryGrid">
+        <!-- Rendered dynamically by doctors-finder.js -->
+      </div>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 3. AI SYMPTOM CHECKER VIEW -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-ai-chat" class="app-view">
+    <section class="ai-section" style="min-height: calc(100vh - 72px); display:flex; align-items:center;">
+      <div class="ai-bg"></div>
+      <div class="ai-grid">
+        <div>
+          <div class="ai-label" data-i18n="ai_header">AI-Powered Healthcare</div>
+          <h2 class="ai-title" data-i18n="ai_title">Smart Diagnosis. Right Doctor. Right Now.</h2>
+          <p class="ai-desc" data-i18n="ai_desc">Our AI engine trained on clinical cases instantly identifies what specialist you need, with confidence scores and urgency levels.</p>
+          
+          <div class="ai-features">
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="fas fa-brain"></i></div>
+              <div class="ai-feature-text">
+                <strong data-i18n="ai_engine">AI Doctor Recommendation Engine</strong>
+                <span data-i18n="ai_engine_desc">Matches symptoms to the right specialist with 90%+ accuracy</span>
+              </div>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="fas fa-language"></i></div>
+              <div class="ai-feature-text">
+                <strong data-i18n="ai_multilingual">Multilingual AI Assistant</strong>
+                <span data-i18n="ai_multilingual_desc">Speaks Hindi, Punjabi, Odia — natural regional language support</span>
+              </div>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="ai-feature-text">
+                <strong data-i18n="ai_emergency">Emergency Prioritization System</strong>
+                <span data-i18n="ai_emergency_desc">Automatically classifies severity and triggers emergency protocols</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-demo">
+          <div class="ai-demo-header">
+            <div class="ai-demo-icon">🤖</div>
+            <div>
+              <div class="ai-demo-title" data-i18n="ai_chat_title">RuralCare AI Assistant</div>
+              <div class="ai-demo-subtitle" data-i18n="ai_chat_subtitle">Online · Responds instantly</div>
+            </div>
+          </div>
+          
+          <!-- Chat Streams Container -->
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages populated by symptom-checker.js -->
+          </div>
+          
+          <div class="chat-input-row">
+            <input class="chat-input" type="text" id="chatInput" data-i18n="ai_chat_placeholder" placeholder="Type your symptoms...">
+            <!-- Audio Mic Button -->
+            <button class="chat-voice-btn" id="chatVoiceBtn" title="Speak symptoms (Multilingual)"><i class="fas fa-microphone"></i></button>
+            <button class="chat-send" id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 4. SIMULATED TELEHEALTH VIDEO ROOM -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-consultation" class="app-view">
+    <section style="background:var(--bg); min-height: calc(100vh - 72px);">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <div class="section-label">Telehealth Consult Room</div>
+        <h2 class="section-title">Encrypted Consultation Session</h2>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Connecting Rural Nabha sector to regional clinical specialists.</p>
+      </div>
+
+      <!-- Telehealth container -->
+      <div id="consultActiveArea">
+        <!-- Rendered dynamically by video-consult.js -->
+      </div>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 5. SOS EMERGENCY CONSOLE VIEW -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-emergency" class="app-view">
+    <section style="background:var(--bg); min-height: calc(100vh - 72px);">
+      <div class="section-header" style="margin-bottom:24px;">
+        <div class="section-label" style="color:var(--emergency);">Emergency Response Console</div>
+        <h2 class="section-title">SOS Urgent Care Dispatch</h2>
+        <p style="font-size:13px; color:var(--muted);">Instant priority routing locks coordinates and alarms local Nabha dispatch teams.</p>
+      </div>
+
+      <div class="sos-console-grid">
+        <!-- Left Side: GPS details and ambulance tracker -->
+        <div>
+          <!-- Alarm siren banner -->
+          <div class="sos-alert-banner">
+            <div class="sos-alarm-btn-main"><i class="fas fa-broadcast-tower"></i></div>
+            <div>
+              <h3 style="color:#991B1B; font-size:16px; font-weight:700;">SOS Priority Alert Triggered</h3>
+              <p style="font-size:13px; color:#7F1D1D; margin-top:2px;">Locked Location: <strong>Nabha Sector 2, Punjab (30.3751° N, 76.1528° E)</strong></p>
+            </div>
+            <button onclick="toggleEmergencySiren(this)" class="btn-primary" style="margin-left:auto; background:var(--emergency);"><i class="fas fa-volume-up"></i> Play Siren</button>
+          </div>
+
+          <!-- Linear Ambulance Tracker timeline -->
+          <div class="chart-card" style="margin-bottom: 24px;">
+            <h4 style="font-size:15px; font-weight:700; color:var(--dark); margin-bottom:14px;"><i class="fas fa-ambulance" style="color:var(--emergency)"></i> Live Ambulance Dispatch Timeline</h4>
+            <div style="background:var(--bg); height:8px; border-radius:4px; overflow:hidden; margin-bottom:12px;">
+              <div id="ambTrackerProgress" style="background:var(--emergency); height:100%; width:0%; transition: width 0.8s ease;"></div>
+            </div>
+            <p id="ambTrackerText" style="font-size:13px; font-weight:600; color:var(--dark);">Calculating ETA...</p>
+            
+            <div style="display:flex; justify-content:space-between; margin-top:16px; font-size:11px; color:var(--muted);">
+              <span>1. Dispatched</span>
+              <span>2. Circular Rd</span>
+              <span>3. Rural Bypass</span>
+              <span>4. Arrived</span>
+            </div>
+            <button onclick="requestAmbulance()" class="btn-primary" style="margin-top:16px; background:var(--dark); width:100%; justify-content:center;"><i class="fas fa-shipping-fast"></i> Re-request Ambulance Team</button>
+          </div>
+
+          <!-- Map route simulation box -->
+          <div class="sos-map-box">
+            <div class="map-bg-pattern"></div>
+            <!-- Patient marker -->
+            <div class="map-marker" style="bottom:50px; left:50px; color:var(--green);"><i class="fas fa-house-user"></i> Patient (You)</div>
+            <!-- Ambulance marker -->
+            <div id="mapAmbulanceIcon" class="map-ambulance-icon" style="bottom:200px; right:300px;"><i class="fas fa-ambulance"></i></div>
+            <!-- Local clinic markers -->
+            <div class="map-marker" style="top:40px; left:200px; color:var(--blue-light);"><i class="fas fa-hospital-user"></i> Civil Hospital</div>
+          </div>
+        </div>
+
+        <!-- Right Side: Nearest hospital bed finder and Blood banks list -->
+        <div>
+          <div class="chart-card" style="height:100%;">
+            <h4 style="font-size:15px; font-weight:700; color:var(--dark); margin-bottom:16px;"><i class="fas fa-hospital-symbol" style="color:var(--emergency)"></i> Hospital Bed Availability Finder</h4>
+            
+            <div id="sosHospitalList">
+              <!-- Populated dynamically by emergency.js -->
+            </div>
+
+            <!-- Blood Bank Tickers -->
+            <h4 style="font-size:14px; font-weight:700; color:var(--dark); margin-top:24px; margin-bottom:12px;"><i class="fas fa-tint" style="color:var(--emergency)"></i> Blood Donor Groups in Nabha CHC</h4>
+            <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;">
+              <div style="background:#FEF2F2; text-align:center; padding:8px; border-radius:8px; border:1px solid #FEE2E2;">
+                <div style="font-size:14px; font-weight:800; color:#EF4444;">O+</div>
+                <div style="font-size:10px; color:var(--muted);">12 units</div>
+              </div>
+              <div style="background:#FEF2F2; text-align:center; padding:8px; border-radius:8px; border:1px solid #FEE2E2;">
+                <div style="font-size:14px; font-weight:800; color:#EF4444;">A+</div>
+                <div style="font-size:10px; color:var(--muted);">8 units</div>
+              </div>
+              <div style="background:#FEF2F2; text-align:center; padding:8px; border-radius:8px; border:1px solid #FEE2E2;">
+                <div style="font-size:14px; font-weight:800; color:#EF4444;">B+</div>
+                <div style="font-size:10px; color:var(--muted);">14 units</div>
+              </div>
+              <div style="background:#FEF2F2; text-align:center; padding:8px; border-radius:8px; border:1px solid #FEE2E2;">
+                <div style="font-size:14px; font-weight:800; color:#EF4444;">AB-</div>
+                <div style="font-size:10px; color:#EF4444; font-weight:600;">Critical</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- 6. DIGITAL HEALTH VAULT / DASHBOARD VIEW -->
+  <!-- ────────────────────────────────────────── -->
+  <div id="view-dashboard" class="app-view">
+    <section style="background:var(--bg); min-height: calc(100vh - 72px);">
+      <div class="section-header" style="margin-bottom:30px;">
+        <div class="section-label" data-i18n="patient_records_title">Digital Health Vault</div>
+        <h2 class="section-title" id="dashPatientName">Satya Pal</h2>
+        <p id="dashPatientDetails" style="font-size:13px; color:var(--muted); margin-top:2px;">48 Yrs · Male · Nabha Rural, Punjab</p>
+      </div>
+
+      <div class="vault-layout">
+        <!-- Left Column: Vitals trend graph -->
+        <div>
+          <!-- Vitals Chart Card -->
+          <div class="chart-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h4 style="font-size:15px; font-weight:700; color:var(--dark);" data-i18n="vitals_header">Your Health Vitals History</h4>
+              <span style="font-size:11px; color:var(--green); font-weight:600;"><i class="fas fa-circle"></i> Pulse (bpm)</span>
+            </div>
+            <!-- Raw Canvas Chart -->
+            <canvas id="vitalsCanvasChart" class="canvas-chart"></canvas>
+            <p style="font-size:11px; color:var(--muted); margin-top:10px;">Graph updates dynamically upon issuance of new clinical records.</p>
+          </div>
+
+          <!-- Document Uploader box -->
+          <div class="chart-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h4 style="font-size:15px; font-weight:700; color:var(--dark);">Uploaded Health Reports</h4>
+              <button onclick="handleReportUpload()" class="btn-primary" style="padding:6px 12px; font-size:11px;" data-i18n="upload_btn"><i class="fas fa-upload"></i> Upload</button>
+            </div>
+            
+            <div id="dashDocumentsList">
+              <!-- Populated dynamically by records.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Digital Prescriptions list -->
+        <div>
+          <div class="chart-card" style="height:100%;">
+            <h4 style="font-size:15px; font-weight:700; color:var(--dark); margin-bottom:16px;" data-i18n="prescriptions_header">Your Digital Prescriptions</h4>
+            
+            <div class="prescription-list" id="dashPrescriptionsList">
+              <!-- Populated dynamically by records.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- MODALS OVERLAYS -->
+  <!-- ────────────────────────────────────────── -->
+  
+  <!-- Printable Prescription Modal -->
+  <div id="modalPrescription" class="modal-overlay">
+    <!-- Populated dynamically by video-consult.js -->
+  </div>
+
+  <!-- Doctor Booking Slots Confirmation Modal -->
+  <div id="modalAppointment" class="modal-overlay">
+    <!-- Populated dynamically by doctors-finder.js -->
+  </div>
+
+  <!-- Register Modal -->
+  <div id="modalRegister" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeAllModals()">&times;</button>
+      <h3 style="color:var(--green); font-size:20px; font-weight:800; margin-bottom:16px;">Create Patient Profile</h3>
+      <form class="contact-form" style="gap:12px;" onsubmit="event.preventDefault(); closeAllModals(); showNotification('Profile Registered', 'Successfully registered on Nabha telemedicine cloud.');">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="First and last name" required>
+        </div>
+        <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div>
+            <label>Age</label>
+            <input type="number" placeholder="Years" required>
+          </div>
+          <div>
+            <label>Gender</label>
+            <select>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nabha Rural Block/Village</label>
+          <input type="text" placeholder="Village name or sector" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number (for SMS prescriptions)</label>
+          <input type="tel" placeholder="10-digit mobile number" required>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:12px; margin-top:8px;"><i class="fas fa-check-circle"></i> Complete Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- CORE JAVASCRIPT INCLUDES -->
+  <!-- ────────────────────────────────────────── -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="symptom-checker.js"></script>
+  <script src="video-consult.js"></script>
+  <script src="emergency.js"></script>
+  <script src="records.js"></script>
+  <script src="doctors-finder.js"></script>
+</body>
+</html>
